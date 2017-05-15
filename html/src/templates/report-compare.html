@@ -1,0 +1,140 @@
+<h1>Page loading numbers comparision for tests <%= this.testIds.join(', ') %></h1>
+
+<div data-type="loading-spinner"></div>
+
+<p>
+<a href="<%= window.location.hash.replace('reportCompare', 'visualProgressCompare') %>">
+Visual progress compare view</a>, 
+
+<a href="<%= window.location.hash.replace('reportCompare', 'resourceBreakdown') %>">
+Resource type breakdown compare view</a>
+</p>
+
+<div data-view="test-description"></div>
+
+<p><label>
+	<input type="checkbox" data-action="viewFirstView" <%= this.options.viewRepeatView ? 'checked' : ''%>> </input>Show <strong>Repeat View</strong> ?</label>
+
+	<span data-help-ref="repeatView" 
+		data-help-title="Repeat View" 
+		class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+</p>
+
+<p><label>
+	<input type="checkbox" data-action="removeOutliers" <%= this.options.removeOutliers ? 'checked' : ''%>> </input>Remove outliers ?</label>
+
+	<span data-help-ref="removeOutliers" 
+		data-help-title="Remove outliers" 
+		class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+</p>
+
+<p><label>Sample selection by:
+	<select data-type="sample-selection-by">
+		<option value="average" <%= this.options.sampleSelectionBy==='average' ? 'selected' : '' %> >average</option>
+		<option value="median" <%= this.options.sampleSelectionBy==='median' ? 'selected' : '' %>>median</option>
+	</select>
+	</label>
+	<span data-help-ref="reportCompareSampleSelectionBy" 
+		data-help-title="Sample selection by" 
+		class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+</p>
+
+<div class="row">
+  <div class="col-md-6">
+	<figure class="chart" data-id="visualCompletionNonZeroCanvas">
+		<figcaption>Time when VisualCompletion is non zero. </figcaption>
+		<span data-help-ref="visualCompletionNonZero" 
+			data-help-title="SVisual Completion non zero" 
+			class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+		<div class="chart-tooltip"></div>
+		<canvas class="chart-canvas" height="300" width="550" 
+			alt="First paint time for test definition <%= this.testIds.join(', ') %>">
+		</canvas>		
+		<div class="chart-legend"></div>
+	</figure>
+
+  </div>
+  <div class="col-md-6">
+  	<figure class="chart" data-id="visualCompletion100Canvas" >
+		<figcaption>Visual Completion 100%</figcaption>
+		<span data-help-ref="visualCompletion100" 
+			data-help-title="SVisual Completion 100%" 
+			class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+  		<div class="chart-tooltip"></div>
+  		<!-- <div class="chart-controls">
+  			<label>Break on <input type="number" value="100" data-type="chart-visualCompletion100-breakOn"></input> %</label>
+  		</div> -->
+		<canvas class="chart-canvas" height="300" width="550" 
+		alt="Visual Completion 100% for est definition <%= this.testIds.join(', ') %>"></canvas>
+
+		<div class="chart-legend"></div>
+	</figure>
+  </div>
+</div>
+
+<div class="row">
+ 
+  <div class="col-md-6">
+	<figure class="chart" data-id="fullyLoadedCanvas">
+		<figcaption>Time to fully loaded</figcaption>
+		<span data-help-ref="fullyLoaded" 
+			data-help-title="Time to fully loaded" 
+			class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+		<div class="chart-tooltip"></div>
+		<div class="chart-tooltip"></div>
+		<canvas class="chart-canvas"  height="300" width="550" 
+			alt="Time to fully loaded for test definition <%= this.testIds.join(', ') %>">
+		</canvas>		
+		<div class="chart-legend"></div>
+	</figure>
+
+  </div>
+
+  <div class="col-md-6">
+	
+	<figure class="chart" data-id="SpeedIndex">
+		<figcaption>Speed Index</figcaption>
+		<span data-help-ref="speedIndex" 
+			data-help-title="Speed index" 
+			class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+		<div class="chart-tooltip"></div>
+		<canvas class="chart-canvas"  height="300" width="550" 
+			alt="Speed Index for test definition <%= this.testIds.join(', ') %>">
+		</canvas>		
+		<div class="chart-legend"></div>
+	</figure>
+  </div>
+</div>
+
+
+<div class="row">
+
+ <div class="col-md-6">
+	<figure class="chart" data-id="lastVisualChangeCanvas">
+		<figcaption>Time of the last visual change</figcaption>
+		<div class="chart-tooltip"></div>
+		<canvas class="chart-canvas"  height="300" width="550" 
+			alt="First paint time for test definition <%= this.testIds.join(', ') %>">
+		</canvas>		
+		<div class="chart-legend"></div>
+	</figure>
+
+  </div>
+
+  <div class="col-md-6">
+	<!-- <figure class="chart" data-id="fullyLoadedCanvas">
+		<figcaption>Time to fully loaded</figcaption>
+		<div class="chart-tooltip"></div>
+		<canvas class="chart-canvas"  height="300" width="550" 
+			alt="Time to fully loaded for test definition <%= this.testIds.join(', ') %>">
+		</canvas>		
+		<div class="chart-legend"></div>
+	</figure> -->
+  </div>
+</div>
+
+
+
+<div>
+</div>
+

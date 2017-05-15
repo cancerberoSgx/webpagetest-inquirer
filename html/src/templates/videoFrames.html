@@ -1,0 +1,75 @@
+<h3>Video frames comparison for tests <%= this.testDefIds.join(', ')%></h3>
+
+<p>The following timeline show the visual progress of tests
+<%= _(this.wptTestIds).map(function(id){ return '<a href="http://www.webpagetest.org/result/' + id + '">'+id+'</a>'; }).join(', ')%>. 
+</p> 
+
+
+<a href="#visualProgressCompare/<%= this.visualProgressCompareTests.join(',')%>">Open Visual Progress comparison Charts</a>
+
+
+<p><label>
+	<input type="checkbox" data-action="viewFirstView" <%= this.options.viewRepeatView ? 'checked' : ''%>> </input>Show <strong>Repeat View</strong> ?</label>
+
+	<span data-help-ref="repeatView" 
+		data-help-title="Repeat View" 
+		class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+</p>
+
+<div data-type="loading-spinner"></div>
+
+
+
+<h3>Filmstrip comparison</h3>
+
+
+<div><div class="filmstrip-comparison">
+<table class="filmstrip-comparison-table">
+<tr class="time-row">
+	<td>Time (ms)</td>
+	<% for(var i = 0; i<this.getMaxStripLength(); i++){ %>
+	<td><%= i*100 %></td>
+	<% } %>
+</tr>
+<% _(this.filmStrip).each(function(strip, testId){ %>
+	<tr class="">
+		<td class="testId"><h5><%= testId%></h5></td>
+		<% _(strip).each(function(frame){ 
+			var desc = 'time='+frame.time+', visuallyComplete='+frame.frame.VisuallyComplete; %>
+
+			<td><%= frame.frame.VisuallyComplete%>% <img src="<%= frame.frame.image %>" 
+				alt="<%= desc%>" title="<img src='<%= frame.frame.image%>'></img><%= desc%>" 
+				data-image-url="<%= frame.frame.image %>"
+				data-image-time="<%= frame.time%>"
+				data-image-VisuallyComplete="<%= frame.frame.VisuallyComplete%>"></img>
+			</td>
+		<% })%>
+	</tr>
+<% }); %>
+</table>
+<style type="text/css">
+.filmstrip-comparison img {
+	width: 160px;
+	border: 1px solid #ededed;
+	cursor: pointer;
+}
+.filmstrip-comparison {
+	width: 100%;
+	overflow: scroll;
+}
+.filmstrip-comparison .time-row {
+	font-style: italic; 
+	margin-bottom: 16px; 
+	font-size: 0.9em;
+}
+</style>
+</div></div>
+
+<button data-type="html-snippet">HTML snippet</button>
+
+
+<h3>Timeline</h3>
+
+<p><em>You can <strong>drag</strong> for move, use the <strong>wheel</strong> to zoom and <strong>click</strong> to open the frame image. </em></p>
+
+<div data-type="timeline"></div>

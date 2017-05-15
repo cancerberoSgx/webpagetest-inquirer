@@ -1,0 +1,25 @@
+<h1>Test definitions</h1>
+
+
+
+<div class="row">
+<div class="col-md-8">
+	<p>Please select one or more tests below and click 'report' to see its reports. </p>
+
+	<div data-type="loading-spinner"></div>
+
+	<ul>
+	<% _(this.metadata).each(function(metadata, testId){ %>
+		<li><input class="report-selection" type="checkbox" value="<%= testId %>"><%= testId %></input></li>
+	<% })%>
+	</ul>
+</div>
+<div class="col-md-4">
+	<p class="condition-met" style="display: none">Please select one or more tests first</p>
+	<button data-action="report">See Single test numbers report!</button>
+	<button data-action="report-compare">Compare tests numbers report!</button>	
+	<button data-action="report-visualProgressCompare">Compare test's visual progress!</button>
+</div>
+</div>
+
+

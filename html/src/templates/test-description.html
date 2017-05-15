@@ -1,0 +1,9 @@
+<% if(!this.testData){return'';}%>
+
+<dl class="dl-horizontal">
+	<% _(this.testData.testDefinition).each(function(val, key){ 
+		if(!_(['runtest_php_url']).contains(key)) {%>	
+	<dt class="test-description-name"><%= key%></dt><dd class="test-description-value"><%= val%></dd>
+	<%}}); %>
+	<dt class="test-description-name">Total test runs</dt><dd class="test-description-value"><%= _(this.testData.testResults).keys().length * (parseInt(this.testData.testDefinition.testCount)||1)%></dd>
+</dl>

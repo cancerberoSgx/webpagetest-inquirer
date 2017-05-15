@@ -1,0 +1,128 @@
+<h1>Visual Progress Comparision for tests <%= this.testIds.join(', ') %></h1>
+
+<div data-type="loading-spinner"></div>
+
+<p>
+	<a href="<%= window.location.hash.replace('visualProgressCompare', 'reportCompare') %>">
+	Main Numbers compare view</a>, 
+	<a href="<%= window.location.hash.replace('visualProgressCompare', 'resourceBreakdown') %>">
+	Resource type breakdown compare view</a>
+</p>
+
+<div data-view="test-description"></div>
+
+<p>This page compares <strong>VISUAL PROGRESS</strong> of some test definitions. The speed index is 
+the correct quantification for this, but seeing visually gives much more information. </p>
+
+<p>From all the existing samples we show only the visual progress of median samples with respect to some interesting sample number. 
+	So there is a chart with the visual progress of the median with respect to an interesting number like the visual completion, speed index, fully loaded, etc:</p>
+
+<p><input type="checkbox" data-action="viewFirstView" <%= this.options.viewRepeatView ? 'checked' : ''%>>Show <strong>Repeat View<strong> ?</input>
+	<span data-help-ref="repeatView" 
+		data-help-title="Repeat View" 
+		class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+</p>
+
+<p><label>
+	<input type="checkbox" data-action="removeOutliers" <%= this.options.removeOutliers ? 'checked' : ''%>> </input>Remove outliers ?</label>
+
+	<span data-help-ref="removeOutliers" 
+		data-help-title="Remove outliers" 
+		class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+</p>
+
+<div class="row">
+  <div class="col-md-12">
+	<figure class="chart" data-id="visualCompletionNonZeroCanvas" data-measure-name="VisuallyCompleteNonZero">
+		<figcaption>Time when VisualCompletion is non zero. </figcaption>
+		<span data-help-ref="visualCompletionNonZero" 
+			data-help-title="Visual Completion non zero" 
+			class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+		<div><a data-placeholder="videoFramesCompare" href="">
+			<span class="glyphicon glyphicon-exclamation-sign"></span>Video frames</a>
+		</div>
+		<div class="chart-tooltip"></div>
+		<canvas class="chart-canvas"  height="300" width="550" 
+			alt="First paint time for test definition <%= this.testIds.join(', ') %>">
+		</canvas>		
+		<div class="chart-legend"></div>
+	</figure>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+  	<figure class="chart" data-id="visualCompletion100Canvas"  data-measure-name="VisuallyComplete100">
+		<figcaption>Visual Completion 100%</figcaption>
+		<span data-help-ref="visualCompletion100" 
+			data-help-title="SVisual Completion 100%" 
+			class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+		<div><a data-placeholder="videoFramesCompare" href="">
+			<span class="glyphicon glyphicon-exclamation-sign"></span>Video frames</a>
+		</div>
+  		<div class="chart-tooltip"></div>
+		<canvas class="chart-canvas" height="300" width="550" 
+		alt="Visual Completion 100% for est definition <%= this.testIds.join(', ') %>"></canvas>
+
+		<div class="chart-legend"></div>
+	</figure>
+  </div>
+</div>
+
+<div class="row">
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+	
+	<figure class="chart" data-id="SpeedIndex" data-measure-name="SpeedIndex">
+		<figcaption>Speed Index</figcaption>
+		<span data-help-ref="speedIndex" 
+			data-help-title="Speed index" 
+			class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+		<div><a data-placeholder="videoFramesCompare" href="">
+			<span class="glyphicon glyphicon-exclamation-sign"></span>Video frames</a>
+		</div>
+		<div class="chart-tooltip"></div>
+		<canvas class="chart-canvas"  height="300" width="550" 
+			alt="Speed Index for test definition <%= this.testIds.join(', ') %>">
+		</canvas>		
+		<div class="chart-legend"></div>
+	</figure>
+  </div>
+</div>
+
+ <div class="col-md-12">
+	<figure class="chart" data-id="fullyLoadedCanvas" data-measure-name="fullyLoaded">
+		<figcaption>Time to fully loaded</figcaption>
+		<span data-help-ref="fullyLoaded" 
+			data-help-title="Time to Fully Loaded" 
+			class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+		<div><a data-placeholder="videoFramesCompare" href="">
+			<span class="glyphicon glyphicon-exclamation-sign"></span>Video frames</a>
+		</div>
+		<div class="chart-tooltip"></div>
+		<canvas class="chart-canvas"  height="300" width="550" 
+			alt="Time to fully loaded for test definition <%= this.testIds.join(', ') %>">
+		</canvas>		
+		<div class="chart-legend"></div>
+	</figure>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+	<figure class="chart" data-id="lastVisualChangeCanvas" data-measure-name="lastVisualChange">
+		<figcaption>Time of the last visual change</figcaption>
+		<div><a data-placeholder="videoFramesCompare" href="">
+			<span class="glyphicon glyphicon-exclamation-sign"></span>Video frames</a>
+		</div>
+		<div class="chart-tooltip"></div>
+		<canvas class="chart-canvas"  height="300" width="550" 
+			alt="First paint time for test definition <%= this.testIds.join(', ') %>">
+		</canvas>		
+		<div class="chart-legend"></div>
+	</figure>
+
+  </div>
+</div>
+

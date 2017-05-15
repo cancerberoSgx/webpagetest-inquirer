@@ -1,0 +1,10 @@
+<h1>Resource type breakdown comparison</h1>
+
+<% _(this.data).each(function(data, testId) { %>
+<div class="resource-breakdown"><h4><%= testId%></h4>
+	<div data-legend="<%= testId%>"></div>
+	<canvas class="chart-canvas" data-canvas-test-id="<%= testId%>"></canvas>
+</div>
+<% });%>
+
+ 

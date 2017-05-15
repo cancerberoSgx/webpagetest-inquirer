@@ -1,0 +1,38 @@
+{
+  "name": "webpagetest-inquirer",
+  "version": "0.0.2",
+  "description": "tools for webpagetests automation",
+  "main": "main.js",
+  "scripts": {
+    "test": "node node_modules/jasmine/bin/jasmine.js"
+  },
+  "author": "sgurin",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^1.1.0",
+    "colors": "^1.0.3",
+    "inquirer": "^0.8.2",
+    "q": "^1.2.0",
+    "querystring": "^0.2.0",
+    "request": "^2.55.0",
+    "shelljs": "^0.4.0",
+    "underscore": "^1.8.3",
+    "yargs": "^3.7.0"
+  },
+  "devDependencies": {
+    "browserify": "^9.0.8",
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.5.2",
+    "gulp-sourcemaps": "^1.5.1",
+    "gulp-template-compile": "^1.0.0",
+    "gulp-uglify": "^1.1.0",
+    "gulp-util": "^3.0.4",
+    "gulp-watch": "^4.2.4",
+    "jasmine": "^2.3.1",
+    "node-static": "^0.7.6",
+    "reactify": "^1.1.0",
+    "short-jsdoc": "^0.1.6",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
