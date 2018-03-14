@@ -1,14 +1,14 @@
-#webpagetest inquirer
+# webpagetest inquirer
 
-This project let me agile *define webpagetest.org tests* and *run* them multiple times, easily and programatically, all from the *command line*. 
+This project let me agile *define webpagetest.org tests* and *run* them multiple times, easily and programatically, all from the *command line*.
 
-Also it contains a html application that shows reports of the test results, with a big emphasis in comparing the visual progress of two or more tests. 
+Also it contains a html application that shows reports of the test results, with a big emphasis in comparing the visual progress of two or more tests.
 
 
 
-#Why?
+# Why?
 
-Initial page rendering is one of the most important things to optimize in a web page, specially in a single page app. webpagettest.org is definetely the best tool for diagnosing how a page is shown to a user when loding. This tool allow two things webpagetest don't offer out of the box and is: 
+Initial page rendering is one of the most important things to optimize in a web page, specially in a single page app. webpagettest.org is definetely the best tool for diagnosing how a page is shown to a user when loding. This tool allow two things webpagetest don't offer out of the box and is:
 
  * Be able to store test results in your hard drive permanently and see results offline
  * accumulate more and more test results in a single 'test definition'
@@ -17,7 +17,7 @@ Initial page rendering is one of the most important things to optimize in a web 
 
 
 
-#Setup 
+# Setup
 
 Make sure you have node, bower and gulp installed on your system, if unsure of the later, execute the following command (only once):
 
@@ -31,7 +31,7 @@ Then download and setup webpagetest-inquirer:
 	bower install
 
 
-#Using it: defining tests and run them in the cmd line
+# Using it: defining tests and run them in the cmd line
 
 Define a new test definition with interactive questions
 
@@ -48,14 +48,14 @@ Run a test but being asked to choose from all existing test definitions:
 
 
 
-#Using it: generating tests reports 
+# Using it: generating tests reports
 
 Tests reports are displayed using an html application. First you must turn the server on with the command:
 
 	gulp run
 
 and then open the html application in the browser:
-	
+
 	firefox http://localhost:8080/html
 
 Also you can generate a *static HTML file* that can be opened locally without running a server, this is nice for easy sharing results in a .zip file. Make sure you distribute the full folder, then others can open index-static.html locally with a browser. For generating this file just run:
@@ -65,24 +65,24 @@ Also you can generate a *static HTML file* that can be opened locally without ru
 
 
 
-#Using it: Test data administration
+# Using it: Test data administration
 
 If you want to import existing tests from other workspace/folder:
 
 	node src/main.js --add-to-metadata=../myotherworkspace/testData/google_2
-	
+
 If you want to remove a test definition from current workspace:
 
 	node src/main.js --remove-test=my_site_test2
 
-If you want to rename an existing test definition, if you want to change the name of existing test definition 'my_site2' to the name 'MySitePageZ' : 
+If you want to rename an existing test definition, if you want to change the name of existing test definition 'my_site2' to the name 'MySitePageZ' :
 
 	node src/main.js --rename-test=my_site2,MySitePageZ
 
 If you want to remove the first run of a test definition (because you have detected some problem in those measures) you can do it by:
 
 	node src/main.js --removeTestRun=ngf_home_cxm_chrome,0
-	
+
 
 # Running unit tests
 

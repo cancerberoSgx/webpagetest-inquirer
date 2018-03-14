@@ -21,6 +21,8 @@
   },
   "devDependencies": {
     "browserify": "^9.0.8",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0",
     "gulp": "^3.8.11",
     "gulp-concat": "^2.5.2",
     "gulp-sourcemaps": "^1.5.1",

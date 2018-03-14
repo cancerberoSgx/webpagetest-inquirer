@@ -6,4 +6,4 @@ This file enumerate some changes from version 0.0.2:
 
 #0.0.2
 
- * We start counting concrete changes here...
+ * eslint
