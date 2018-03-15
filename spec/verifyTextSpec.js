@@ -2,34 +2,32 @@ const Tool = require('../src/index');
 const args = require('yargs').argv;
 const _ = require('underscore');
 const shell = require('shelljs');
-// const async = require('async');
-// const Q = require('q');
-// const request = require('request');
-// const path = require('path');
-// const fs = require('fs');
 
 describe('1', () => {
+
   const folderName = 'verifyText';
-  const apikey = args.apikey;
+  const apikey = args.apikey || process.env.APIKEY;
   beforeEach(() => {
     // need to increase jasmine timeout to 5 mins to wait for wpt responses
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 5 * 60 * 1000;
   });
 
-  it('hit google.com and wait until finish', (done) => {
+  it('envvar test', ()=>{
+    console.log('APIKEY', process.env.APIKEY)
+  })
+
+  xit('hit google.com and wait until finish', (done) => {
     shell.rm('-rf', folderName);
 
     let config = {
-      apikey,
-			targetUrl: 'https://www.google.com.uy/',
-			speed: 'FIOS',
-			location: 'Dulles:Chrome',
-			testId: 'verifyText',
-			testCount: 1,
-			fvonly: true, //first view only
-			testDataFolder: folderName,
-
-			wptConfig: {
+	  apikey,targetUrl: 'https://www.google.com.uy/',
+	  speed: 'FIOS',
+	  location: 'Dulles:Chrome',
+	  testId: 'verifyText',
+	  testCount: 1,
+	  fvonly: true, //first view only
+	  testDataFolder: folderName,
+wptConfig: {
         iq: 100, // no jpeg compression
       },
     };
@@ -43,7 +41,7 @@ describe('1', () => {
   });
 
 
-  it('should give us some results on expected folder', (done) => {
+  xit('should give us some results on expected folder', (done) => {
     let metadata = JSON.parse(shell.cat(`${folderName}/metadata.json`));
     expect(metadata.verifyText.testId).toBe('verifyText');
     expect(metadata.verifyText.location).toBe('Dulles:Chrome');

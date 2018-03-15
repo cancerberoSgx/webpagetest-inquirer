@@ -1,9 +1,15 @@
+[![Build Status](https://travis-ci.org/cancerberoSgx/webpagetest-inquirer.png?branch=master)](https://travis-ci.org/cancerberoSgx/webpagetest-inquirer)
+[![Greenkeeper badge](https://badges.greenkeeper.io/cancerberoSgx/webpagetest-inquirer.svg)](https://greenkeeper.io/)
+[![Dependencies](https://david-dm.org/cancerberosgx/webpagetest-inquirer.svg)](https://david-dm.org/cancerberosgx/webpagetest-inquirer)
+
+
 # webpagetest inquirer
 
-This project let me agile *define webpagetest.org tests* and *run* them multiple times, easily and programatically, all from the *command line*.
+Agile definition of *define webpagetest.org tests* in the command line interactively and and *run* test multiple times, easily and programatically, all from the *command line* in a non interactively way.
 
 Also it contains a html application that shows reports of the test results, with a big emphasis in comparing the visual progress of two or more tests.
 
+Ideal for automation performance test resports and Continous Integration
 
 
 # Why?
@@ -87,3 +93,8 @@ If you want to remove the first run of a test definition (because you have detec
 # Running unit tests
 
 	node node_modules/jasmine/bin/jasmine.js --apikey=mywebpagetestapike
+
+or declare the api key in an environment variable:
+
+	exports APIKEY=lkasjdlajsdlj
+	npm test
